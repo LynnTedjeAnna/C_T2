@@ -1,0 +1,8 @@
+//
+// Created by Lynn Meindertsma on 03/09/2024.
+//
+
+#ifndef BIKECOMPUTER_BIKE_MEASURE_H
+#define BIKECOMPUTER_BIKE_MEASURE_H
+
+#endif //BIKECOMPUTER_BIKE_MEASURE_H
