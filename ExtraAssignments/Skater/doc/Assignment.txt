@@ -1,0 +1,59 @@
+A program for a skating weekend.
+================================
+
+General
+-------
+In these directories you'll find an empty project in which you can add your code for the skating program. This file contains everything you need to know.
+
+As usual in this assignments directory you will have a pre-made Makefile in the main directory. If you call 'make' on the commandline in that directory, the normal executable (skates) will be built. With 'make test' the test application is built and run.
+
+If you add new .c and .h files to the 'product' directory, these will automatically be recognized by the Makefile. For testing you can do 3 things:
+    1. rename 'empty_test.c' to something sensible and include all tests in it.
+    2. rename 'empty_test.c' to "your module name"_test.c and only include tests for a particular module. You'll also have to create header files for all test function prototypes and a test_main.c that runs all these tests.
+Option 1 is the easiest, 2 is neater.
+
+
+Desired features
+-----------------
+This program should be used for a skating weekend. In this weekend 8 skaters participate and they all ride 4 distances:
+    - 500 m
+    - 1500 m
+    - 5 km
+    - 10 km
+A menu structure has already been created, more or less copied from Animal Shelter. Below are the menu options with the desired behavior:
+    - Show Skaters:
+        Shows the data of all 8 skaters. Initially all data are empty or zero.
+
+    - Add Skater:
+        This option allows you to add 1 of the 8 skaters. Your code will ask the skater's name and nationality. Times cannot be entered here yet, but your administration should keep a skater's name, nationality and time for each distance.
+
+    - Remove Skater:
+        This option asks which skater should be removed and clears the data of that skater.
+
+    - Add time:
+        This option asks for which skater and for which distance the time should be changed. If the time increases from previous entry a warning must be given.
+        So: suppose skater 1 raced the 500 m distance in 50 seconds and you have already filled that in. If a user now wants to change that time to 51 seconds, your program will ask if the user is sure and will only change the time if the user was sure.
+
+    - Show fastest times:
+        With this option the program asks you for which distance you want to see the times. After you have entered them, the program shows all skaters that have already ridden this distance in order from fastest to slowest. Skaters that have not ridden this distance will not be shown!
+
+    - Show final classification:
+        With this option the final classification is given. The skaters are sorted on their average speed, the fastest skater is on top.
+        If not all skaters have ridden all distances yet, a warning will be written to the screen that this is a preliminary ranking. After this warning only the skaters who have ridden all distances will be shown.
+
+    - Load file from disk:
+        Optional: if you don't want to retype all skaters every time (easier for testing your user interface!)
+
+    - Save administration to disk:
+        Optional.
+
+    - Quit:
+        Exits the program. IF you have implemented the Save/Load functions, the program will keep track of any data that has not been saved. If this is the case, you will first be asked if you still want to save the data before the program closes (Yes/No/Cancel or Save/Discard/Cancel).
+
+
+Design
+-------
+As you learned in the first semester, the UI code may not be in the same unit (C file) as the 'rest'. This also applies here, of course. In addition, the 'rest' can certainly be subdivided into several small parts. Try to think about that. Think from different responsibilities in the application (for example: sorting of skaters is a different responsibility than reading/writing files on disk, so maybe the code should be in a separate file...).
+HINT: reading and writing from the terminal is now done in terminal_io.c, so if you want to keep your design clean, the main function should not have that same responsibility.
+
+Good Luck!
