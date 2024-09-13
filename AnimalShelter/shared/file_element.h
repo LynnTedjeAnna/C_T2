@@ -17,14 +17,14 @@ int writeAnimals(const char* filename, const Animal* animalPtr, size_t nrAnimals
 /* pre    : n.a.
  * post   : nrAnimals animals are written into a new file with data from
  *          animalPtr
- * returns: On succes: 0, on error (file could not be written, input pointers
+ * returns: On success: 0, on error (file could not be written, input pointers
  *          are NULL): -1
  */
 
 int getNrAnimalsInFile(const char* filename, size_t* nrAnimals);
 /* pre    : n.a.
  * post   : get number of animals (Animal structures) in the file
- * returns: on succes: 0, on error: -1
+ * returns: on success: 0, on error: -1
  *
  */
 
