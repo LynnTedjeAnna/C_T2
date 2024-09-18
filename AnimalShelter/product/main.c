@@ -47,30 +47,29 @@ int main(int argc, char* argv[])
 
         switch (choice)
         {
-        case MO_SHOW_ANIMALS:
-			printAnimals(animals, nrAnimals);
-            break;
-        case MO_ADD_ANIMAL:
-            break;
-        case MO_REMOVE_ANIMAL:
-            break;
-        case MO_SORT_ANIMALS_BY_AGE:
-			break;
-        case MO_SORT_ANIMALS_BY_YEAR_FOUND:
-			break;
-        case MO_SORT_ANIMALS_BY_SEX:
-			break;
-        case MO_FIND_ANIMAL:
-            break;
-        case MO_SAVE:
-			break;
-        case MO_LOAD:
-			break;
-        case MO_QUIT:
-            break;
-        default:
-            printf("ERROR: invalid choice: %d\n", choice);
-            break;
+            case MO_SHOW_ANIMALS:
+                break;
+            case MO_ADD_ANIMAL:
+                break;
+            case MO_REMOVE_ANIMAL:
+                break;
+            case MO_SORT_ANIMALS_BY_AGE:
+                break;
+            case MO_SORT_ANIMALS_BY_YEAR_FOUND:
+                break;
+            case MO_SORT_ANIMALS_BY_SEX:
+                break;
+            case MO_FIND_ANIMAL:
+                break;
+            case MO_SAVE:
+                break;
+            case MO_LOAD:
+                break;
+            case MO_QUIT:
+                break;
+            default:
+                printf("ERROR: invalid choice: %d\n", choice);
+                break;
         }
     }
     return 0;

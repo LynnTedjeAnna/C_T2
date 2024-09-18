@@ -9,12 +9,12 @@ void (*unit_tearDown_ptr)(void) = NULL;
 
 #ifdef UNITY_USE_MODULE_SETUP_TEARDOWN
 
-void setUp()
+void setUp(void)
 {
   if(unity_setUp_ptr != NULL) unity_setUp_ptr();
 }
 
-void tearDown()
+void tearDown(void)
 {
   if(unit_tearDown_ptr != NULL) unit_tearDown_ptr();
 }

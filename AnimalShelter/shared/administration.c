@@ -6,7 +6,6 @@
 #include <string.h>
 #include "animal.h"
 
-//todo: check it all
 
 int addAnimal(
             const Animal* animalPtr, Animal* animalArray,
@@ -17,7 +16,7 @@ int addAnimal(
         return -1;
     }
     // animalArrayLength must be greater than numberOfAnimalsPresent
-    if (animalArrayLength < numberOfAnimalsPresent){
+    if (animalArrayLength <= numberOfAnimalsPresent){
         return -1;
     }
 
@@ -85,11 +84,8 @@ int findAnimalById(
 }
 
 /*-------------------------------------------------------------------------------*/
-//todo : check all below
-
 typedef bool (*animal_compare)(Animal* A, Animal* B);
 
-//todo: ??
 //static because only used if this file and does not need to be exposed to other parts of the program
 static void sort_animals(Animal* animalArray, size_t numberOfAnimalsPresent, animal_compare compare){
     if (!animalArray) {

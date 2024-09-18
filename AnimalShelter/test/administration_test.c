@@ -20,16 +20,56 @@ void administration_tearDown(void)
 void test_EmptyTest(void)
 {
     TEST_ASSERT_EQUAL(1, 0);
+    TEST_ASSERT_EQUAL(-1, -1);
+    TEST_ASSERT_EQUAL(-1, -1);
+    TEST_ASSERT_EQUAL(-1, -1);
+    TEST_ASSERT_EQUAL(0, 0);
 }
 
 //add here your testcases
+void test_addAnimal_emptyArray(void) {
+    Animal test;                       // Declare an Animal structure 'test'.
+    size_t test_nnoap;                 // Declare a variable 'test_nnoap' of type size_t (typically used for array sizes).
 
-void run_administration_tests()
+    // Call the 'addAnimal' function with the following parameters:
+    // - &test: A pointer to the 'test' Animal object.
+    // - NULL: This likely represents an empty array, indicating that no existing animals are present.
+    // - 10: This might be a limit or size parameter, possibly the maximum capacity of the array.
+    // - 0: This could be the current number of animals in the array (0 because it's empty).
+    // - &test_nnoap: A pointer to 'test_nnoap', where 'addAnimal' may store the new number of animals after the operation.
+    int res = addAnimal(&test, NULL, 10, 0, &test_nnoap);
+
+    // Check if the result of 'addAnimal' is -1, which indicates an error (such as an attempt to add an animal to a NULL array).
+    TEST_ASSERT_EQUAL(res, -1);
+}
+void test_addAnimal_fullArray(void) {
+    Animal test;
+    size_t test_nnoap;
+    Animal animal_array[10];  // Correct type for the animal array
+    int res = addAnimal(&test, animal_array, 10, 10, &test_nnoap);
+    TEST_ASSERT_EQUAL(res, -1);  // Check for -1, indicating the array is full
+}
+void test_removeAnimal_emptyArray(void){
+    size_t test_nnoap;
+    int res = removeAnimal(0, NULL, 0, &test_nnoap);
+    TEST_ASSERT_EQUAL(res, -1);
+}
+void test_removeAnimal(void){
+    size_t test_nnoap;
+    Animal animal_array[10];  // Correct type for the animal array
+    int res = removeAnimal(1, animal_array, 10, &test_nnoap);
+    TEST_ASSERT_EQUAL(res, 0);
+}
+
+void run_administration_tests(void)
 {
     UnityRegisterSetupTearDown(administration_setUp, administration_tearDown);
 
     MY_RUN_TEST(test_EmptyTest);
-
+    MY_RUN_TEST(test_addAnimal_emptyArray);
+    MY_RUN_TEST(test_addAnimal_fullArray);
+    MY_RUN_TEST(test_removeAnimal_emptyArray);
+    MY_RUN_TEST(test_removeAnimal);
     UnityUnregisterSetupTearDown();
 }
 

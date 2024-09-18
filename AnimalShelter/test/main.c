@@ -4,8 +4,8 @@
 /* As an alternative for header files we can declare that
  * the following methos are available 'extern'ally.
  */
-extern void run_administration_tests();
-extern void run_file_element_tests();
+extern void run_administration_tests(void);
+extern void run_file_element_tests(void);
 
 int main (int argc, char * argv[])
 {

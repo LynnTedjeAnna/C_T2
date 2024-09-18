@@ -4,8 +4,6 @@
 #include "unity.h"
 #include "unity_test_module.h"
 
-
-
 // I rather dislike keeping line numbers updated, so I made my own macro to ditch the line number
 #define MY_RUN_TEST(func) RUN_TEST(func, 0)
 
@@ -24,7 +22,7 @@ void test_EmptyTest_file(void)
     TEST_ASSERT_EQUAL(1, 0);
 }
 
-void run_file_element_tests()
+void run_file_element_tests(void)
 {
     UnityRegisterSetupTearDown( file_element_setUp, file_element_tearDown);
 
