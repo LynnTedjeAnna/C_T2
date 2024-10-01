@@ -5,7 +5,7 @@
 #include "include/bike_math.h"
 #include "include/bike_store.h"
 
-uint16_t bike_math_get_value_for_data_type(
+static uint16_t bike_math_get_value_for_data_type(
             bike_store_measurement measurement, bike_data_type data_type)
 {
     uint16_t value = 0;

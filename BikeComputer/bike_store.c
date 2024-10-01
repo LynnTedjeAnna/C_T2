@@ -3,9 +3,12 @@
 //
 
 #include "include/bike_store.h"
- uint16_t bike_store_number_of_measurements_present = 0;
 
-bike_store_measurement bike_store_array[BIKE_STORE_MAX_NUMBER_MEASUREMENTS] = {
+#define BIKE_STORE_MAX_NUMBER_MEASUREMENTS (32)
+
+static uint16_t bike_store_number_of_measurements_present = 0;
+
+static bike_store_measurement bike_store_array[BIKE_STORE_MAX_NUMBER_MEASUREMENTS] = {
     { 0, },
 };
 

@@ -6,8 +6,6 @@
 #define BIKECOMPUTER_BIKE_STORE_H
 #include <stdint.h>
 
-#define BIKE_STORE_MAX_NUMBER_MEASUREMENTS (32)
-
 typedef struct
 {
     uint16_t speed;
