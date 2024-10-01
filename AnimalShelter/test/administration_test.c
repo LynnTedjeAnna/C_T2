@@ -61,6 +61,31 @@ void test_removeAnimal(void){
     TEST_ASSERT_EQUAL(res, 0);
 }
 
+void test_sortAnimalsByAge_one_animal(void) {
+    // Initialize the array with one animal
+    Animal animal_array[1] = {
+        { .Id = 1, .Species = Dog, .Sex = Male, .Age = 5, .DateFound = {1, 1, 2020} }
+    };
+    int res = sortAnimalsByAge(animal_array, 1);
+
+    TEST_ASSERT_EQUAL(0, res);
+
+    // Since we only have one animal, the age should still be 5 after sorting
+    TEST_ASSERT_EQUAL(5, animal_array[0].Age);
+}
+void test_sortAnimalsByAge(void) {
+    // Initialize the array with one animal
+    Animal animal_array[2] = {
+        { .Id = 1, .Species = Dog, .Sex = Male, .Age = 5, .DateFound = {1, 1, 2020}  },
+        { .Id = 2, .Species = Cat, .Sex = Male, .Age = 7, .DateFound = {1, 2, 2020}  }
+    };
+    int res = sortAnimalsByAge(animal_array, 2);
+
+    TEST_ASSERT_EQUAL(0, res);
+
+    TEST_ASSERT_EQUAL(5, animal_array[0].Age);
+    TEST_ASSERT_EQUAL(7, animal_array[1].Age);
+}
 void run_administration_tests(void)
 {
     UnityRegisterSetupTearDown(administration_setUp, administration_tearDown);
@@ -70,6 +95,9 @@ void run_administration_tests(void)
     MY_RUN_TEST(test_addAnimal_fullArray);
     MY_RUN_TEST(test_removeAnimal_emptyArray);
     MY_RUN_TEST(test_removeAnimal);
+    MY_RUN_TEST(test_sortAnimalsByAge_one_animal);
+    MY_RUN_TEST(test_sortAnimalsByAge);
+
     UnityUnregisterSetupTearDown();
 }
 
