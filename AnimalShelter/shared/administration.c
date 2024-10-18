@@ -29,6 +29,7 @@ int addAnimal(
     return 0;
 }
 
+
 int removeAnimal(
             int animalId, Animal* animalArray,
             size_t numberOfAnimalsPresent,
@@ -37,31 +38,29 @@ int removeAnimal(
     if (!animalArray || !newNumberOfAnimalsPresent){
         return -1;
     }
-    //Iterate through the array of animals to find the animal with the specified ID
-    int index = -1;
-    for (int i = 0; i < numberOfAnimalsPresent; ++i) {
-        //Find the animal in the array
+
+    int i = 0;
+    int animalsRemoved = 0;
+
+    // Loop over the array and shift animals with matching ID to remove them
+    while (i < numberOfAnimalsPresent) {
         if (animalArray[i].Id == animalId) {
-            //set index to number animal to be removed is
-            index = i;
-            break;
+            // Shift all elements after the current index to the left
+            for (int j = i; j < numberOfAnimalsPresent - 1; ++j) {
+                animalArray[j] = animalArray[j + 1];
+            }
+            numberOfAnimalsPresent--;
+            animalsRemoved++;
+        } else {
+            // Only move to the next animal if the current one wasn't removed
+            i++;
         }
     }
-    if (index == -1) {
-        //if id not present return false
-        return -1;
-    }
-    // Copy next element value to current element en remove the animal from the array consequently
-    for(int i = index; i < numberOfAnimalsPresent-1; i++)
-    {
-        animalArray[i] = animalArray[i + 1];
-    }
-    //Update the count of animals present if
-    numberOfAnimalsPresent --;
-    //Update the pointer value for the number of animals present.
+
     *newNumberOfAnimalsPresent = numberOfAnimalsPresent;
 
-    return 0;
+
+    return animalsRemoved;
 }
 
 int findAnimalById(
@@ -76,11 +75,11 @@ int findAnimalById(
         //If the animal is found, copy its data into the provided Animal structure pointer.
         if (animalArray[i].Id == animalId) {
             *animalPtr = animalArray[i];
-            return 0;
+            return 1;
         }
     }
     //Return a value indicating that the animal was not found
-    return -1;
+    return 0;
 }
 
 /*-------------------------------------------------------------------------------*/
@@ -131,7 +130,6 @@ int sortAnimalsByAge(Animal* animalArray, size_t numberOfAnimalsPresent) {
     // Print the sorted array of animals (for debugging or verification purposes)
     printf("After Sorting:\n");
     for(int i = 0; i < numberOfAnimalsPresent; i++) {
-        printf("%d ", animalArray[i].Age);
     }
     return 0;
 }

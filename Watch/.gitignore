@@ -1,3 +1,4 @@
 watch
 watch_test
-
+.idea/
+build/
