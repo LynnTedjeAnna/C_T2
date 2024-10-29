@@ -90,7 +90,7 @@ void watch_registers_get_date(uint8_t date_bits_low, uint8_t date_bits_high, uin
     *year = date_bits_low & ~(0b1 << 7);
 
     *month = date_bits_low >> 7;
-    *month |= (date_bits_high & 0b111) << 1;
+    *month |= (date_bits_high & 0b111);
 
     *day_of_month = (date_bits_high & ~(0b111)) >> 3;
 }

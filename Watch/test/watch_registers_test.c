@@ -90,6 +90,7 @@ void test_watch_registers_set_config_time_update_interval_10(){
 
     TEST_ASSERT_EQUAL(0b11100, config);
 }
+
 /*------------------------------------------------------------------------------------------------------------------*/
 void test_watch_registers_get_config_settings(){
     uint8_t config = 0b11101;
@@ -164,25 +165,25 @@ void test_watch_registers_set_date_day_of_month(){
     TEST_ASSERT_EQUAL(0b1010001, date_bits_high);
 }
 /*------------------------------------------------------------------------------------------------------------------*/
+//todo chaneg dont use get
+
 void test_watch_registers_get_date()
 {
-    const uint8_t year = 1;        //2001
-    const uint8_t month = 10;
-    const uint8_t day_of_month = 10;
-    uint8_t time_bits_low = 0b1111;
-    uint8_t time_bits_high = 0b1111;
+    uint8_t year = 1;           // 2001
+    uint8_t month = 1;
+    uint8_t day_of_month = 1;
+    uint8_t time_bits_low = 0b10000001;
+    uint8_t time_bits_high = 0b1;
 
-    watch_registers_set_date_year(&time_bits_low, &time_bits_high, year);
-    watch_registers_set_date_month(&time_bits_low, &time_bits_high, month);
-    watch_registers_set_date_day_of_month(&time_bits_low, &time_bits_high, day_of_month);
+    uint8_t expected_year = 1;
+    uint8_t expected_month = 1;
+    uint8_t expected_day_of_month = 1;
 
-    uint8_t y;
-    uint8_t m;
-    uint8_t d;
-    watch_registers_get_date(time_bits_low, time_bits_high, &y, &m, &d);
-    TEST_ASSERT_EQUAL(year, y);
-    TEST_ASSERT_EQUAL(month, m);
-    TEST_ASSERT_EQUAL(day_of_month, d);
+    watch_registers_get_date(time_bits_low, time_bits_high, &year, &month, &day_of_month);
+
+    TEST_ASSERT_EQUAL(expected_year, year);
+    TEST_ASSERT_EQUAL(expected_month, month);
+    TEST_ASSERT_EQUAL(expected_day_of_month, day_of_month);
 }
 /*------------------------------------------------------------------------------------------------------------------*/
 
