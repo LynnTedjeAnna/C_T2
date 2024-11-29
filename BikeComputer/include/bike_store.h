@@ -20,4 +20,4 @@ bike_store_measurement bike_store_get_measurement(uint16_t index_position);
 uint16_t bike_store_get_maximum_bike_store_size(void);
 
 
-#endif //BIKECOMPUTER_BIKE_STORE_H
+#endif BIKECOMPUTER_BIKE_STORE_H
