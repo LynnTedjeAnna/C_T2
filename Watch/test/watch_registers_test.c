@@ -165,7 +165,6 @@ void test_watch_registers_set_date_day_of_month(){
     TEST_ASSERT_EQUAL(0b1010001, date_bits_high);
 }
 /*------------------------------------------------------------------------------------------------------------------*/
-//todo chaneg dont use get
 
 void test_watch_registers_get_date()
 {
