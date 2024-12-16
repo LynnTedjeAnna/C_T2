@@ -15,7 +15,7 @@
 uint8_t decode_combine_nibbles(uint8_t high, uint8_t low);
 
 /*!
- * Decodes a nibble from a byte that contains the nible (4-bits) and
+ * Decodes a nibble from a byte that contains the nibble (4-bits) and
  * corresponding parity bits (3-bits). See assignment for more details.
  *
  * @param in:     A bytes that contains a nibble and parity bits.

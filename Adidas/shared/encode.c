@@ -6,7 +6,7 @@ void encode_get_nibbles(uint8_t value, uint8_t* high, uint8_t* low){
     *low = value & 0b1111;
 }
 
-void encode_value(uint8_t input, uint8_t* high, uint8_t* low){{
+void encode_value(uint8_t input, uint8_t* high, uint8_t* low){
         encode_get_nibbles(input, high, low);
 
         uint8_t parities = get(high);
@@ -14,5 +14,4 @@ void encode_value(uint8_t input, uint8_t* high, uint8_t* low){{
 
         parities = get(low);
         *low = (*low << 3) | parities;
-    }
 }

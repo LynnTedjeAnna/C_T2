@@ -9,25 +9,23 @@ uint8_t encode_main(uint8_t argc, char* argv[])
     char* output_file_name = argv[3];
 
     bool success = io_open_file_for_reading(input_file_name);
-    if (!success)
-        my_exit(1);
+    if (!success){ my_exit(1);}
 
     success = io_open_file_for_writing(output_file_name);
-    if (!success)
-        my_exit(1);
+    if (!success) { my_exit(1); }
 
     uint8_t high = 0, low = 0;
-    uint8_t byteRead = 0;
-    while (io_read_byte(&byteRead))
+    uint8_t byte_read = 0;
+    while (io_read_byte(&byte_read))
     {
-        encode_value(byteRead, &high, &low);
+        encode_value(byte_read, &high, &low);
 
         success = io_write_byte(high);
-        if (!success)
-            my_exit(1);
+
+        if (!success){ my_exit(1);}
         success = io_write_byte(low);
-        if (!success)
-            my_exit(1);
+
+        if (!success){ my_exit(1);}
     }
 
     my_exit(0);

@@ -5,7 +5,7 @@
 
 
 /*!
- * Initialiase the channel module
+ * Initialise the channel module
  */
 void channel_init();
 

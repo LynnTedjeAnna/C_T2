@@ -16,9 +16,10 @@ extern void channel_tearDown(void)
     // This is run after EACH test
 }
 
-static void test_channel(void)
-{
-    TEST_ASSERT_EQUAL(1, 0);
+static void test_channel(void){
+    uint8_t test = 0b10101010;
+    uint8_t res = channel_change_one_random_bit(test);
+    TEST_ASSERT_NOT_EQUAL(test, res);
 }
 
 void run_channel_tests()
