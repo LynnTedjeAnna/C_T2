@@ -10,9 +10,9 @@ int channel_main(int argc, char* argv[])
     char* output_file_name = argv[3];
 
     bool success = io_open_file_for_reading(input_file_name);
-    if (!success) { myExit(1); }
+    if (!success) { exit(1); }
     success = io_open_file_for_writing(output_file_name);
-    if (!success) { myExit(1); }
+   if (!success) { exit(1); }
     channel_init();
 
     uint8_t byte_read = 0;
@@ -27,11 +27,11 @@ int channel_main(int argc, char* argv[])
         }
 
         success = io_write_byte(byte_read);
-        if (!success) { myExit(1); }
+       if (!success) { exit(1); }
         index++;
     }
 
-    myExit(0);
+   exit(0);
 
     return 0;
 }

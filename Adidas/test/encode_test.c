@@ -69,8 +69,6 @@ void test_get_parity(void) {
     }
 }
 
-
-
 void run_encode_tests()
 {
     UnityRegisterSetupTearDown( encode_setUp, encode_tearDown);

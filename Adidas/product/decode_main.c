@@ -10,10 +10,10 @@ int decode_main(int argc, char* argv[])
     char* output_file_name = argv[3];
 
     bool success = io_open_file_for_reading(input_file_name);
-    if (!success){ myExit(1);}
+    if (!success){ exit(1);}
 
     success = io_open_file_for_writing(output_file_name);
-    if (!success){ myExit(1);}
+    if (!success){ exit(1);}
 
     uint8_t high = 0, low = 0;
     uint8_t nibbe_high = 0, nibbe_low = 0;
@@ -35,8 +35,8 @@ int decode_main(int argc, char* argv[])
         char decoded = decode_combine_nibbles(nibbe_high, nibbe_low);
 
         success = io_write_byte(decoded);
-        if (!success){ myExit(1);}
+        if (!success){ exit(1);}
     }
-    myExit(0);
+    exit(0);
     return 0;
 }
